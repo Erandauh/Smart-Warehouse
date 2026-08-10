@@ -21,7 +21,7 @@ public class ProductController {
     private final ProductService productService;
 
     @PostMapping("/product")
-    public ResponseEntity<ProductResponse> registerBook(@Valid @RequestBody ProductCreateRequest productCreateRequest) {
+    public ResponseEntity<ProductResponse> registerProduct(@Valid @RequestBody ProductCreateRequest productCreateRequest) {
         log.info("Registering new product: {}", productCreateRequest);
 
         var productSaved = productService.register(productCreateRequest.toEntity());
