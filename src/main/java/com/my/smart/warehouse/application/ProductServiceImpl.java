@@ -16,10 +16,13 @@ public class ProductServiceImpl implements ProductService {
     public Product register(Product product) {
         // BL
 
-        // AI integration to generate description and category
-        product.setDescription(aiProductService.generateDescription(product.getName()));
 
         // save
-        return productRepository.save(product);
+        var productSaved = productRepository.save(product);
+
+        // AI integration to generate description
+        aiProductService.generateAndUpdateDescriptionAsync(productSaved.getId(), product.getName());
+
+        return productSaved;
     }
 }
