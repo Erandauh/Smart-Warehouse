@@ -10,10 +10,14 @@ import org.springframework.stereotype.Service;
 public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
+    private final AiProductService aiProductService;
 
     @Override
     public Product register(Product product) {
         // BL
+
+        // AI integration to generate description and category
+        product.setDescription(aiProductService.generateDescription(product.getName()));
 
         // save
         return productRepository.save(product);
