@@ -29,7 +29,9 @@ The snapshot below captures the live database state via the H2 Console, showing 
 <br> Figure: Real-time inspection of the H2 relational database showing an inventory record successfully processed and dynamically updated by the background Gemini AI pipeline.  
 <img width="953" height="351" alt="image" src="https://github.com/user-attachments/assets/f56bbe0f-be20-4a25-b5c2-28ec040fa925" />
 
-AI Chat assistant MCP interface (<Search>)
+<br>
+AI Chat assistant MCP interface 
+
 <img width="767" height="432" alt="image" src="https://github.com/user-attachments/assets/3bb5832e-a218-4611-9848-140974924797" />
 
 
