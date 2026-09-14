@@ -18,6 +18,14 @@ public class AiProductService {
         this.productRepository = productRepository;
     }
 
+    /**
+     * Asynchronously generates an AI-written product description for the given product and stores it back in the repository.
+     * The method builds a prompt from the product name, sends it to the configured chat client, and updates the matching
+     * product record when one is found.
+     *
+     * @param productId the unique identifier of the product whose description should be updated
+     * @param productName the product name used to generate the AI description prompt
+     */
     @Async
     public void generateAndUpdateDescriptionAsync(UUID productId, String productName) {
         try {
