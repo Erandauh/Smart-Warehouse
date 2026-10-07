@@ -1,0 +1,4 @@
+Warehouse Standard Operating Procedures (SOP):
+1. Hazardous Material Handling: All chemical containers must be stored in Zone B with secondary containment pallets.
+2. Return Policy: Defective electronic parts must be logged into the inventory system and routed to the RMA department within 24 hours.
+3. Forklift Safety Protocol: Maximum speed limit inside warehouse aisles is 8 km/h. Horns must be sounded at all blind intersections.
