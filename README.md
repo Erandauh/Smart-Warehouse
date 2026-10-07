@@ -1,6 +1,6 @@
 Backend architecture built on Spring Boot 4.1.0 and Java 25 (Project Loom), engineered as a multi-model evaluation harness. This system is designed to benchmark and assess the performance, throughput, latency, and contextual comprehension of heterogeneous Large Language Models (LLMs) integrated via Spring AI and executed across decoupled Virtual Thread pipelines.
 
-🏗️ Architectural Overview & Technical Highlights
+<b>🏗️ Architectural Overview & Technical Highlights</b>
  - Poly-LLM Multi-Model Evaluation Harness: Abstracted service boundary allowing seamless plug-and-play evaluation across various frontier AI engines (e.g., Google Gemini, OpenAI GPT models) to benchmark response times, token efficiency, and classification accuracy.
  - Non-Blocking Asynchronous Processing Pipelines: Completely decouples resource-intensive generative payloads from the core transactional ingress lifecycle using event-driven background synchronization.
  - Java 25 Lightweight Virtual Threads (Project Loom): Maximizes horizontal execution concurrency and bypasses traditional thread-pool starvation by routing long-running external API calls to unbounded virtual threads (spring.threads.virtual.enabled=true).
@@ -29,10 +29,33 @@ The snapshot below captures the live database state via the H2 Console, showing 
 <br> Figure: Real-time inspection of the H2 relational database showing an inventory record successfully processed and dynamically updated by the background Gemini AI pipeline.  
 <img width="953" height="351" alt="image" src="https://github.com/user-attachments/assets/f56bbe0f-be20-4a25-b5c2-28ec040fa925" />
 
-<br>
-AI Chat assistant MCP interface 
+<br></br>
+<b>AI Chat assistant (Tool Calling)</b>
 
 <img width="767" height="432" alt="image" src="https://github.com/user-attachments/assets/3bb5832e-a218-4611-9848-140974924797" />
+
+<n></n>
+<br>
+<b>🚀 AI-Based Inventory & SOP Retrieval (RAG Pipeline)</b>
+</br>
+The Smart Warehouse architecture implements a localized Retrieval-Augmented Generation (RAG) pipeline designed to query warehouse Standard Operating Procedures (SOPs) dynamically using Spring AI and Google GenAI.
+
+🏗️ Technical Architecture & Workflow
+Vector Storage Layer: Utilizes an in-memory SimpleVectorStore configured via explicit embedding model bindings to vectorize and persist internal operational documents at startup.
+
+Embedding Engine: Powered by Google GenAI's gemini-embedding-001 model, optimizing document chunks for high-dimensional semantic vector space mapping.
+
+Inference & Orchestration: Leverages Spring AI's ChatClient combined with the QuestionAnswerAdvisor pattern to inject relevant context snippets dynamically into the model's inference loop.
+
+Runtime Infrastructure: Built on a modular monolith layout running on Spring Boot 4.1.0 and Spring AI 2.0.1, featuring asynchronous execution threads and embedded H2 persistence.
+
+🧪 API Endpoints & Verification
+The following HTTP request demonstrates the semantic retrieval query against the /v1/rag/query endpoint:
+
+Endpoint: GET /v1/rag/query
+
+Query Parameter: q (Natural language operational question)
+<img width="710" height="319" alt="image" src="https://github.com/user-attachments/assets/52dcf5a0-4cf4-4655-bef0-2c272461ff3e" />
 
 
 🛠️ Tech Stack & Specifications
